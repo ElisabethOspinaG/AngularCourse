@@ -1,0 +1,17 @@
+curso de angular
+
+instalacion de node js
+
+verificar si esa instalado primero. En consolo se le da 
+node -v
+
+2. clonar repositorio
+
+3. Actualizar el repositorio
+
+git remote add upstream https://github.com/PedroOspina17/AngularCourse.git
+
+git pull upstream main
+
+git junior // actualizar el repo
+

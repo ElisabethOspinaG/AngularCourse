@@ -1,0 +1,114 @@
+NOTAS CURSO DE ANGULAR
+
+1- INSTALAR ANGULAR CLICK
+ npm install -g @angular/cli
+
+PARA ACTUALIZAR LA VERSION 
+1. primero lo desinstalamos
+npm uninstall -g @angular/cli
+2. limpiamos cache
+npm cache verify
+3 se instala
+npm install -g @angular/cli
+
+2- CREAR EL PROYECTO 
+ng new nombreProyecto
+
+MOVERNOS DENTRO DEL REPOSITORIO
+cd nombreProyecto
+
+3- ABRIR EL PROYECTO EN EL VISUAL STUDIO CODE
+code .
+
+una vez abierto el proyecto, abrimos la terminal del visual y le damos ng -help para ver los comandos que tenemos disponibles.
+
+4- CREAR LA ESTRUCTURA DE CARPETAS
+
+Dentro de app :
+componets - colocamos todos los componentes que vamos creando
+shared - componentes que son compartidos en toda la aplicación
+models - colocamos los modelos
+services -donde vamos a colocar los servicios para comunicarnos con el backend
+helpers - donde vamos a crear los interceptores
+
+Dentro de assets:
+img - colocar las imagenes  
+
+
+COMANDOS
+ng --help // todos los comandos que puedo utilizar con ng
+ng g-- // todos los comandos que puedo utiizar con generate como servicios, directivas, componentes, etc.
+ng g c --help // todos los comandos que podemos utilizar a la hora de crear componentes
+
+5- CREAR COMPONENTE 
+PARA CREAR EL COMPONENT INICIO
+ng g c components/inicio // para crear el componente de inicio
+
+ng g c components/inicio/bienvenida // para crear el componente de bienvenida
+
+ng g c components/inicio/login // para crear el componente login
+
+ng g c components/inicio/register // para crear el componente de registro
+
+ELIMINAR COMPONENTES 
+Nota: si hay un error en la creacion de un componente se elimina el componente y de manera adicional vamos a app.module.ts y en la parte inicial borramos la importaciones que se creo y las declaraciones. 
+
+EJECUTAR EL PROYECTO
+ng serve --o // para ejecutar el proyecto
+
+LIMPIAR CONSOLA
+clear
+control c // para parar el proyecto
+
+
+6. vincular el componente al archivo app.component.html
+
+RENDERIZAR LOS COMPONENTES
+
+En app.componet.html colocomos los componentes a renderizar
+
+
+ROUTER 
+1. setiar el provider en el app.config
+	oriver: [provider(routes)]
+2. hacer las rutas en el approutes.ts
+
+lleba el path y el component
+
+3. utilizar el router outlet en este caso en inicio.components.html
+
+4. en cada parte donde quiera cambiar la ruta debo hacer dos cosas:
+
+A. en el archivo ts colocar en los imports colocar el RouterLinks. 
+
+B. en el html se debe colocar el routerLink dentro de la etiqueta y el path con el nombre de la ruta
+
+colocarlo en 
+
+
+INTERPOLACION // los datos van del ts al html y se pone entre 
+{{ }}
+
+propertybunding
+para atributos
+
+Event bunding
+
+viaja informacion del html al ts
+
+TWO 
+
+
+
+nota 
+para descargar imagenes gratis 
+PIXABAY 
+se busca la imagen.
+se le da click 
+al lado derecho se le da descarga gratuita
+
+
+
+
+
+
