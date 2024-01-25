@@ -1,12 +1,36 @@
+import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import {Usuario} from '../../../models/usuario';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, CommonModule, FormsModule, NgIf, ReactiveFormsModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  public login: FormGroup;
 
+  constructor(private fb: FormBuilder){
+    this.login = this.fb.group({
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+  ngOnInit(): void {
+
+  }
+  log(): void {
+    console.log(this.login);
+
+    const usuario: Usuario = {
+      nombreUsuario: '',
+      password: ''
+    }
+    console.log(usuario);
+
+  }
 }
