@@ -4,6 +4,7 @@
       <div class="card text-center" style="padding: 20px;">
         <h3>LOGIN</h3>
         <br>
+        <app-loading></app-loading>
         <form [formGroup]="login" (ngSubmit)="log()">
           <div class="form-group" style="text-align: start;">
             <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario">
