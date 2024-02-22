@@ -16,7 +16,7 @@ namespace DatabaseConnection.Services
             {
                 PrintTestInfo(row);
             }
-
+            
             Console.WriteLine("-----------------------------------------------------------------");
         }
 
@@ -34,7 +34,6 @@ namespace DatabaseConnection.Services
                 PrintTestInfo(item);
             }
             Console.WriteLine();
-
         }
         public void ShowByName2(string name)
         {
@@ -42,8 +41,7 @@ namespace DatabaseConnection.Services
             var db = new ReciplastkContext();
 
             // Filter by name:
-            var dbPedroRow = db.Tests.Where(p => p.Name == name).FirstOrDefault(); // If i will get many rows 
-
+            var dbPedroRow = db.Tests.Where(p => p.Name == name).FirstOrDefault(); // If i will get many rows
             //Show all the information directly because it is only one object.
 
             PrintTestInfo(dbPedroRow);
@@ -89,7 +87,7 @@ namespace DatabaseConnection.Services
 
             // Find the model that will delete.
             var rowToDelete = db.Tests.Where(p => p.Name == name).FirstOrDefault();
-            db.Remove(rowToDelete);
+            db.Tests.Remove(rowToDelete);
 
             // save the changes to the database ??
             db.SaveChanges(); // Every time you change the database, you should save the changes !!!
