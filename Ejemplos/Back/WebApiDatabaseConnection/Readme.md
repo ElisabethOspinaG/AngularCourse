@@ -8,7 +8,7 @@ These are the most common projects since it is the ones that we see on every day
 - Web: This type of project is designed to attend several users at the same time, those are published on the internet and are accessed via web explorers (Chrome, Firefox, Internet explorer, etc). 
 You should have internet to access them. Examples: Facebook, Instagram, Gmail, WhatsappWeb
 
-![image](Img/WebApps.Jpg)
+![image](Img/WebApps.jpg)
 
 
 - Desktop: This type of applications are designed to attend only one single user. This kind of application is installed locally in the user's computer and you dont need internet to use them. Then an application is installed but in a celphone is called mobile, but it is still this kind of applications. 
