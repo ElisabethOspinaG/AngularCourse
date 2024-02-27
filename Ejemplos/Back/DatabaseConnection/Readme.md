@@ -74,6 +74,6 @@ Then you can use the main operations on the tables:
 		Example: 
 		```
 			var row = db.MyTable.Where(p=> p.MyField == "Pedro").FirstOrDefault();
-			db.Remove(row);
+			db.MyTable.Remove(row);
 			db.SaveChanges();
 		```
