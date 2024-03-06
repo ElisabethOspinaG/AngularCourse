@@ -22,7 +22,7 @@ export class CambiarPasswordComponent {
  }
 
  checkPassword(group: FormGroup): any {
-  const pass = group.controls['password'].value;
+  const pass = group.controls['passwordAnterior'].value;
   const confirmPass = group.controls['confirmPassword'].value;
   return pass === confirmPass ? null : { notSame: true};
 }
