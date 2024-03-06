@@ -22,6 +22,7 @@ namespace coneccionBd.Services
             //Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (var product in productsList)
             {
+                Console.WriteLine("infor de product: " + product);
                 Console.WriteLine();
                 Console.WriteLine("------------------------------------------");
                 Console.WriteLine();
@@ -56,6 +57,15 @@ namespace coneccionBd.Services
                 Console.WriteLine(item.Name);
             }
             Console.WriteLine();
+
+        }
+
+
+
+        private void PrintAllProducts ()
+        {
+
+            
 
         }
     }
