@@ -43,7 +43,7 @@ export class LoginComponent {
     this.showData(data);
     this.showData(userData);
 
-    this.showUserData(data);
+    // this.showUserData(data); // Error
     this.showUserData(userData);
 
     const randomData: AnotherModel = {
@@ -52,6 +52,7 @@ export class LoginComponent {
     };
     // this.showUserData(randomData); // This gives me error in coding time
     this.isLoading = true;
+    
     setTimeout(() => {
       
       this.isLoading = false;
@@ -76,7 +77,7 @@ export class LoginComponent {
   
   showUserData(userData: User){
     console.log(userData.email);
-    console.log(userData.pasword);
+    console.log(userData.password);
     // console.log(userData.whatever); // Gives me error in coding time !!!
   }
 }
