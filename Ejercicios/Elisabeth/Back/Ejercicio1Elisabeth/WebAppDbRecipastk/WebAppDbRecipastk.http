@@ -1,0 +1,6 @@
+@WebAppDbRecipastk_HostAddress = http://localhost:5278
+
+GET {{WebAppDbRecipastk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

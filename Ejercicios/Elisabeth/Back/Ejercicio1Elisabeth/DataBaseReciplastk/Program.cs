@@ -32,7 +32,7 @@ do
             productsServices.FilterAllProductsForName(name);
             break;
         case "3":
-            Console.WriteLine("Digite el nombre del producto que sea buscar");
+            Console.WriteLine("Digite el nombre del producto que desea buscar");
             name = Console.ReadLine();
             productsServices.FilterFirstProductsforName(name);
             break;
@@ -41,8 +41,16 @@ do
             name = Console.ReadLine();
             productsServices.ModifyProduct(name);
             break;
-            productsServices.FilterFirstProductsforName(name);
+            
+        case "5":
+            Console.WriteLine("Digite el nombre del producto que desea ELIMINAR: ");
+            name = Console.ReadLine();
+            productsServices.DeleteProduct(name);
             break;
+        case "6":
+            productsServices.CreateNewProduct();
+            break;
+
         case "0":
             Console.WriteLine("Hasta pronto.");
             break;

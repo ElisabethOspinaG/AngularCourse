@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ejercicio1Elisabeth", "Ejer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coneccionBd", "coneccionBd\coneccionBd.csproj", "{E1A450BB-16DC-4F04-939B-05DF04174094}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioWebAppi", "EjercicioWebAppi\EjercicioWebAppi.csproj", "{D3E52E15-6C76-41EC-AE15-9AF390973E35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjercicioWebAppi", "EjercicioWebAppi\EjercicioWebAppi.csproj", "{D3E52E15-6C76-41EC-AE15-9AF390973E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseReciplastk", "DataBaseReciplastk\DataBaseReciplastk.csproj", "{8DB00CBD-72C1-4EF9-ADBA-87B47B71F204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseReciplastk", "DataBaseReciplastk\DataBaseReciplastk.csproj", "{8DB00CBD-72C1-4EF9-ADBA-87B47B71F204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppDbRecipastk", "WebAppDbRecipastk\WebAppDbRecipastk.csproj", "{E7998625-21A6-49E6-AC3E-F932F2925363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8DB00CBD-72C1-4EF9-ADBA-87B47B71F204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB00CBD-72C1-4EF9-ADBA-87B47B71F204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB00CBD-72C1-4EF9-ADBA-87B47B71F204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7998625-21A6-49E6-AC3E-F932F2925363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7998625-21A6-49E6-AC3E-F932F2925363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7998625-21A6-49E6-AC3E-F932F2925363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7998625-21A6-49E6-AC3E-F932F2925363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
