@@ -42,11 +42,9 @@ namespace DataBaseReciplastk.Services
             // Filter by name:
             var AllProductsForName = dbReciplastk.Products.Where(p => p.Name == productName).ToList();
 
-            Console.WriteLine($"productsForName:  {AllProductsForName}");
-
             foreach (var product in AllProductsForName)
             {
-                Console.WriteLine("infor de product: " + product);
+                
                 Console.WriteLine();
                 Console.WriteLine("------------------------------------------");
                 Console.WriteLine();
@@ -69,7 +67,7 @@ namespace DataBaseReciplastk.Services
             // Filter by first name:
             var FirstProductsForName = dbReciplastk.Products.Where(p => p.Name == productName).FirstOrDefault();
 
-            Console.WriteLine("infor de product: " + FirstProductsForName);
+           
             Console.WriteLine();
             Console.WriteLine("------------------------------------------");
             Console.WriteLine();
@@ -83,13 +81,25 @@ namespace DataBaseReciplastk.Services
             Console.WriteLine($" Creation Day:  {FirstProductsForName.Creationdate}");
             Console.WriteLine($" Up Date:       {FirstProductsForName.Updatedate}");
             Console.WriteLine($" Is Active:     {FirstProductsForName.Isactive}");
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
 
         }
 
 
         public void CreateNewProduct()
         {
+            // Create the model that will contain all the information.
+            var newProduct = new Product();
+            Console.WriteLine("Digite en nombre del nuevo producto. ");
+            newProduct.Name = Console.ReadLine();
+            Console.WriteLine("Digite en nombre del nuevo producto. ");
+            newProduct.Description = Console.ReadLine();
 
+            // add to the table
+            dbReciplastk.Products.Add(newProduct);
+            // save the changes to the database
+            dbReciplastk.SaveChanges(); // Every time you change the database, you should save the changes !!!
 
         }
 
@@ -116,18 +126,31 @@ namespace DataBaseReciplastk.Services
                 var salir = 0;
                 do
                 {
+
                     switch (opc)
                     {
                         case "1":
 
                             // Find the model that will modify.
-                            var rowToModify = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
-                            rowToModify.Name = "Modified from code";
+                            Console.WriteLine("Escriba el nuevo nombre del producto: ");
+                            var newName = Console.ReadLine();
+                            existNameProduct.Name = newName;
 
                             // save the changes to the database
                             dbReciplastk.SaveChanges();
 
+                            Console.WriteLine();
+                            Console.WriteLine($" Nuevo nombre:          {existNameProduct.Name}");
+                            Console.WriteLine();
+                            break;
+                        case "2":
 
+                            // Find the model that will modify.
+                            Console.WriteLine("Escriba el nuevo nombre del producto: ");
+                            var newDescription = Console.ReadLine();
+                            existNameProduct.Description = newDescription;
+                            // save the changes to the database
+                            dbReciplastk.SaveChanges();
                             break;
                         default:
                             break;
@@ -141,8 +164,23 @@ namespace DataBaseReciplastk.Services
 
         }
 
-        public void DeleteProduct()
+        public void DeleteProduct(string name)
         {
+            // Find the model that will delete.
+            var existNameProduct = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
+            if (existNameProduct != null)
+            {
+                dbReciplastk.Products.Remove(existNameProduct);
+                // save the changes to the database ??
+                dbReciplastk.SaveChanges(); //
+            }
+            else
+            {
+                Console.WriteLine("Este producto no existe");
+            }
+           
+
+           
 
         }
 
