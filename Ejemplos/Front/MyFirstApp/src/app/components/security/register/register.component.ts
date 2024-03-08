@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { User } from '../../../models/user';
+import { AnotherModel } from '../../../models/anotherModel';
 
 @Component({
   selector: 'app-register',
@@ -33,5 +35,49 @@ export class RegisterComponent {
 
   submit():void{
     console.log(this.registerForm);
+    // no datatype.
+    const data = {
+      email: "",
+      password: "",
+      test: 'any random info',
+      pedro: 1
+    };
+    
+    // user data type.
+    const userData: User = {
+      email: "pospina",
+      password: "aaa"
+      // test: "random info" // This gives me error in coding time
+    };
+
+    // AnotherModel data type.
+    const randomData: AnotherModel = {
+      OneProperty: 'some info',
+      AnotherProperty: 'more random info ...'
+    };
+    
+
+    console.log(data);
+    console.log(userData);
+    this.showData(data);
+    this.showData(userData);
+    
+    // this.showUserData(randomData); // This gives me error in coding time
+    // this.showUserData(data); // Error
+    this.showUserData(userData);
+
+  }
+  
+  showData(data: any) {
+    console.log(data.test);
+    console.log(data.emial);
+    console.log(data.pasword);
+    console.log(data.whatever);
+  }
+
+  showUserData(userData: User) {
+    console.log(userData.email);
+    console.log(userData.password);
+    // console.log(userData.whatever); // Gives me error in coding time !!!
   }
 }
