@@ -38,5 +38,12 @@ namespace JuegosDeConsola
             Console.WriteLine("     YOU LOST THE GAME.     ");
             Console.ResetColor();
         }
+
+        public void PrintInColor(string text, ConsoleColor color = ConsoleColor.Red)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(text);
+            Console.ResetColor();
+        }
     }
 }

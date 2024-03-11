@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using JuegosDeConsola;
-
 Console.WriteLine("Welcome to the console games!");
 Console.WriteLine("Please type your name to be able to recognize you.");
 var playerName = Console.ReadLine();
@@ -28,6 +27,11 @@ do
         case "2":
             var rpsGame = new RockPaperScissorsGame();
             rpsGame.Start();
+            Console.Clear();
+            break;
+        case "3":
+            var ttt = new TicTacToe();
+            ttt.Start(playerName);
             Console.Clear();
             break;
         case "0":
