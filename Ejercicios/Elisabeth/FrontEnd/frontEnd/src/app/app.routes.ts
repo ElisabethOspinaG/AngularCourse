@@ -6,6 +6,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CuestionariosComponent } from './components/dashboard/cuestionarios/cuestionarios.component';
 import { CambiarPasswordComponent } from './components/dashboard/cambiar-password/cambiar-password.component';
+import { ListProductsComponent } from './components/dashboard/forms/products/list-products/list-products/list-products.component';
+import { AddEditProductsComponent } from './components/dashboard/forms/products/add-edit-products/add-edit-products.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -15,8 +18,11 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
   ]},
   {path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', component: CuestionariosComponent },
-    { path: 'cambiarPassword', component: CambiarPasswordComponent }
+    { path: '', component: ListProductsComponent },
+    { path: 'add', component: AddEditProductsComponent},
+    { path: 'edit/:id', component: AddEditProductsComponent }
+    //  { path: '', component: CuestionariosComponent },
+    // { path: 'cambiarPassword', component: CambiarPasswordComponent }
 
   ]},
   { path: '**', redirectTo: '/inicio', pathMatch: 'full'},

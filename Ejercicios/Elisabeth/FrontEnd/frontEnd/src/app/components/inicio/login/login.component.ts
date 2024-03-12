@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Usuario } from '../../../models/usuario';
 import { LoadingComponent } from '../../../shared/loading/loading.component';
 import { ToastrService } from 'ngx-toastr';
+import { SecurityService } from '../../../services/security.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,9 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder,
     private toastr: ToastrService,
-    private router: Router)
-    {
+    private router: Router,
+    private security: SecurityService
+    ){
     this.login = fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -30,6 +32,8 @@ export class LoginComponent {
   }
 
   log(): void {
+    console.log(this.login);
+
     const usuario: Usuario = {
       nombreUsuario: this.login.value.usuario,
       password: this.login.value.password
@@ -37,18 +41,22 @@ export class LoginComponent {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-      if (usuario.nombreUsuario === 'elisabeth' && usuario.password === 'admin123')
-      {
-        this.login.reset();
-        this.router.navigate(['/dashboard'])
-      } else{
-        this.toastr.error('usuario o contraseña incorrecto', 'Error');
-        this.login.reset();
-      }
-      this.loading= false;
-    } , 2000)
 
-    console.log(usuario);
+      this.security.LogIn(usuario).subscribe((result) =>{
+        if (result == true)
+          {
+            this.login.reset();
+            this.router.navigate(['/dashboard'])
+          } else{
+            this.toastr.error('usuario o contraseña incorrecto', 'Error');
+            this.login.reset()
+      }
+      })
+      console.log(usuario);
+      this.loading= false;
+    } , 3000)
+
+
 
   }
 }

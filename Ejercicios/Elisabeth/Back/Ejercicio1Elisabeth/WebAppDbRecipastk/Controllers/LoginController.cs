@@ -40,23 +40,18 @@ namespace WebAppDbRecipastk.Controllers
             return login.VerifyPassword(user, password);
         }
 
-        [HttpPost("acceseAcount")]
+        [HttpGet("acceseAcount")]
 
         public bool AcceseAcount(string user, string password)
         {
             return login.AcceseAcount(user, password);
-
-
         }
 
         [HttpPost("registerUser")]
         public bool RegisterUser(string name, string lastname, string user, string password)
         {
-
             return login.RegisterUser(name, lastname, user, password);
-
-        }
-
+        } 
 
         [HttpPost("modifyPassword")]
         public string ModifyPassword(string user, string password, string newPassword)

@@ -8,11 +8,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SecurityService {
 
-  constructor(private htpp: HttpClient) { };
+  constructor(private http: HttpClient) { };
 
-  // LogIn(loginInfo: Usuario ): Observable<boolean>{
+  LogIn(loginInfo: Usuario ): Observable<boolean>{
   //   appURL: String = "https://localhost:7039/api/"
   //   controllerURL: string = "";
-  //   return this.http.get<boolean>("https://localhost:7039/api/Login/acceseAcount?user=${loginInfo.nombreUsuario}&password=${loginInfo.password}");
-  // }
+    return this.http.get<boolean>('https://localhost:7039/api/Login/acceseAcount?user='+loginInfo.nombreUsuario+'&password='+loginInfo.password);
+   }
+   LogOut(){
+
+   }
 }
