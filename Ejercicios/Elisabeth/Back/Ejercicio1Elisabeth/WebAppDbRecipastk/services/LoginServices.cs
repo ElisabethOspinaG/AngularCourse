@@ -1,18 +1,26 @@
-﻿using WebAppDbRecipastk.DataAccess;
+﻿using System.Globalization;
+using WebAppDbRecipastk.DataAccess;
+using WebAppDbRecipastk.Models;
 
 namespace WebAppDbRecipastk.services
 {
     public class LoginServices
     {
         public ReciplastkContext db = new ReciplastkContext();
+        public HttpResponsiveModel data = new HttpResponsiveModel();
         public List<Employee> ShowUsers() {
             var listUsers = db.Employees.ToList();
             return listUsers;
         }
 
-        public bool ExistUsername(string user)
+        public HttpResponsiveModel ShowAllUsers()
         {
-            
+            data.Data = db.Employees.ToList();
+            return data ;
+        }
+
+        public bool ExistUsername( string user)
+        {
             var exist = GetlUser(user);
             if(exist != null)
             {
@@ -29,6 +37,7 @@ namespace WebAppDbRecipastk.services
             return userFound;
         }
 
+     
         public string VerifyPassword (string user, string password) {
 
             var userFound = GetlUser(user);
@@ -44,7 +53,7 @@ namespace WebAppDbRecipastk.services
         }
         public bool AcceseAcount(string user, string password) {
 
-            var userFound = GetlUser(user);
+            var userFound = db.Employees.Where(p => p.Username == user).FirstOrDefault();
             if (userFound.Username == user & userFound.Password == password)
             {        
                     return true;
@@ -55,61 +64,58 @@ namespace WebAppDbRecipastk.services
             }
         }
 
-        
-        public bool RegisterUser(string name, string lastname, string user, string password)
+        public bool RegisterUser(ModelNewUser modelNewUser)
         {
-            var exituser = ExistUsername(user);
-            if (exituser)
+            var exituser = db.Employees.Where(p => p.Username == modelNewUser.Username).FirstOrDefault();
+            if (exituser != null)
             {
                 return false;
             }
             else
             {
                 var newEmployee = new Employee();
-                newEmployee.Name = name;
-                newEmployee.Lastname = lastname;
-                newEmployee.Username = user;
-                newEmployee.Password = password;
+                newEmployee.Name = modelNewUser.Name;
+                newEmployee.Lastname = modelNewUser.LastName;
+                newEmployee.Username = modelNewUser.Username;
+                newEmployee.Password = modelNewUser.Password;
+
                 db.Employees.Add(newEmployee);
                 db.SaveChanges();
                 return true;
             }
         }
 
-        public string ModifyPassword(string user, string password, string newPassword)
-        {
+        //public bool ModifyPassword(ModelsLogin modelsLogin)
+        //{
+
             
-            var validateAccount = AcceseAcount(user, password);
-            if(validateAccount)
-            {
-                var userFound = GetlUser(user);
-                userFound.Password = newPassword;
-                db.SaveChanges();
+        //    if (validateAccount)
+        //    {
+        //        var userFound = GetlUser(modelsLogin);
+        //        userFound.Password = modelsLogin.NewPassword;
+        //        db.SaveChanges();
 
-                return "Contraseña Modificada";
-            }
-            else
-            {
-                return "Error. No es posible Cambiar su contraseña, verifique los datos ingresados";
-            }
-        }
-        public bool RemoveUser(string user)
-        {
-            var userFound = GetlUser(user);
-            if (userFound != null)
-            {
-                db.Employees.Remove(userFound);
-                db.SaveChanges();
-                return true;
-            }
-            else
-            {
-                return false ;
-            }
-        }
-        
-
-        
-        
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        // "Error. No es posible Cambiar su contraseña, verifique los datos ingresados"
+        //        return false;
+        //    }
+        //}
+        //public bool DeleteUser(ModelsLogin modelsLogin)
+        //{
+        //    var exituser = db.Employees.Where(p => p.Username == modelsLogin.User).FirstOrDefault();
+        //    if (exituser != null)
+        //    {
+        //        db.Employees.Remove(exituser);
+        //        db.SaveChanges();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false ;
+        //    }
+        //} 
     }
 }

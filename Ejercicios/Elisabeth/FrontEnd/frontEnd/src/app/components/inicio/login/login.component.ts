@@ -41,22 +41,18 @@ export class LoginComponent {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-
       this.security.LogIn(usuario).subscribe((result) =>{
         if (result == true)
-          {
-            this.login.reset();
-            this.router.navigate(['/dashboard'])
+        {
+          this.login.reset();
+          this.router.navigate(['/dashboard'])
           } else{
-            this.toastr.error('usuario o contraseña incorrecto', 'Error');
-            this.login.reset()
-      }
+          this.toastr.error('usuario o contraseña incorrecto', 'Error');
+          this.login.reset()
+        }
       })
       console.log(usuario);
       this.loading= false;
     } , 3000)
-
-
-
   }
 }

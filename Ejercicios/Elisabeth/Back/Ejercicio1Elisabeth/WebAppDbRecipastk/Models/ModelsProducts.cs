@@ -2,12 +2,12 @@
 {
     public class ModelsProducts
     {
-        public string Name = "";
-        public string Description = "";
-        public string Code = "";
-        public int BuyPrice = 0;
-        public int SellPrice = 0;
-        public int Margin = 0;
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Code { get; set; }
+        public int BuyPrice { get; set; }
+        public int SellPrice { get; set; }
+        public int Margin { get; set; }
 
     }
 }

@@ -13,11 +13,18 @@ namespace WebAppDbRecipastk.Controllers
 
         public LoginServices login = new LoginServices();
 
-        [HttpGet("shorUsers")]
+        [HttpGet("showUsers")]
 
         public List<Employee> ShowUsers()
         {
             return login.ShowUsers();
+        }
+
+        [HttpGet("showAllUsers")]
+
+        public HttpResponsiveModel ShowAllUsers()
+        {
+            return login.ShowAllUsers();
         }
 
         [HttpGet("exitUsername")]
@@ -48,21 +55,21 @@ namespace WebAppDbRecipastk.Controllers
         }
 
         [HttpPost("registerUser")]
-        public bool RegisterUser(string name, string lastname, string user, string password)
+        public bool RegisterUser(ModelNewUser modelNewUser)
         {
-            return login.RegisterUser(name, lastname, user, password);
-        } 
-
-        [HttpPost("modifyPassword")]
-        public string ModifyPassword(string user, string password, string newPassword)
-        {
-            return login.ModifyPassword(user, password, newPassword);
+            return login.RegisterUser(modelNewUser);
         }
 
-        [HttpPost("removeUser")]
-        public bool RemoveUser(string user)
-        {
-            return login.RemoveUser(user);
-        }
+        //[HttpPost("modifyPassword")]
+        //public bool ModifyPassword(ModelsLogin modelsLogin)
+        //{
+        //    return login.ModifyPassword(modelsLogin);
+        //}
+
+        //[HttpPost("deleteUser")]
+        //public bool DeleteUser(ModelsLogin modelsLogin)
+        //{
+        //    return login.DeleteUser(modelsLogin);
+        //}
         }
 }

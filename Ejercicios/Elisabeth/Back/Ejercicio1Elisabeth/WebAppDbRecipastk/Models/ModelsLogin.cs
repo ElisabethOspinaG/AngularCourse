@@ -2,10 +2,9 @@
 {
     public class ModelsLogin
     {
-        public string Name = "";
-        public string Lastname = "";
-        public string Username = "";
-        public string Password = "";
-        
+        public string User { get; set; }
+        public string Password { get; set; }
+
+
     }
 }
