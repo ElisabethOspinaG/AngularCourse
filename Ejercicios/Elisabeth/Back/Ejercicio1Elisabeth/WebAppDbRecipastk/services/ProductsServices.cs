@@ -71,7 +71,7 @@ namespace WebAppDbRecipastk.services
             var existProduct = dbReciplastk.Products.Where(p => p.Name == infoProduct.Name).FirstOrDefault();
             if(existProduct != null)
             {
-                return true;
+                return false;
             }
             else
             {
@@ -85,34 +85,12 @@ namespace WebAppDbRecipastk.services
 
                 dbReciplastk.Products.Add(newProduct);
                 dbReciplastk.SaveChanges();
-                return false;
+                return true;
 
             }
             
         }
-        public bool CreateNewProduct2(string name, string description, string code, int buyPrice, int sellPrice )
-        {
-            var product = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
-            if (product == null)
-            {
-                var newProduct = new Product();
-                newProduct.Name = name;
-                newProduct.Description = description;
-                newProduct.Code = code;
-                newProduct.Buyprice = buyPrice;
-                newProduct.Sellprice = sellPrice;
-                dbReciplastk.Products.Add(newProduct);
-                dbReciplastk.SaveChanges();
-
-                return true;
-            }
-            else
-            {
-                
-                return false;
-            }
-        }
-
+        
         public Product ModifyAllProduct2(string name, string description, string code, int buyPrice, int sellPrice, int margin)
         {
             var product = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();

@@ -50,13 +50,7 @@ namespace WebAppDbRecipastk.Controllers
             
             return productsServices.CreateNewProduct(infoProduct);
         }
-        [HttpPost("createNewProduct2")]
-        public bool CreateNewProduct2(string name, string description, string code, int buyPrice, int sellPrice)
-        {
-
-            return productsServices.CreateNewProduct2(name, description, code, buyPrice, sellPrice);
-        }
-
+        
         [HttpPost("ModifyAllProduct")]
 
         public Product ModifyAllProduct(string name, string description, string code, int buyPrice, int sellPrice, int margin)
