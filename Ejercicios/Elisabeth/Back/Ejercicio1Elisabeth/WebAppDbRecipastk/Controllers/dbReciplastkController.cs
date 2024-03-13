@@ -61,13 +61,13 @@ namespace WebAppDbRecipastk.Controllers
 
         public Product ModifyAllProduct(string name, string description, string code, int buyPrice, int sellPrice, int margin)
         {
-            return productsServices.ModifyAllProduct(name, description, code, buyPrice, sellPrice, margin);
+            return productsServices.ModifyAllProduct2(name, description, code, buyPrice, sellPrice, margin);
         }
 
         [HttpPost("ModifyAllProduct2")]
         public Product ModifyllProduct2(ModelsProducts infoProduct) { 
         
-            return productsServices.ModifyAllProduct2(infoProduct);
+            return productsServices.ModifyAllProduct(infoProduct);
         }
 
         [HttpPost("RemoveProduct")]

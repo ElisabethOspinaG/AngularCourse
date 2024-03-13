@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAppDbRecipastk.DataAccess;
+using WebAppDbRecipastk.Models;
 using WebAppDbRecipastk.NewFolder4;
 
 namespace WebAppDbRecipastk.services
@@ -8,12 +9,20 @@ namespace WebAppDbRecipastk.services
     {
 
         public ReciplastkContext dbReciplastk = new ReciplastkContext();
+        public ModelHttpResponseProducts data = new ModelHttpResponseProducts();
+     
 
         public List<Product> ShowAllListProducts()
         {
             var allProductsList = dbReciplastk.Products.ToList();
             return allProductsList;
            
+        }
+
+        public ModelHttpResponseProducts ShowAllProducts()
+        {
+            data.DataProducts = new ModelHttpResponseProducts();
+            return data;
         }
         public List<Product> ShowProductForName(string name)
         {
@@ -58,10 +67,10 @@ namespace WebAppDbRecipastk.services
 
         public bool CreateNewProduct(ModelsProducts infoProduct)
         {
+           
             var existProduct = dbReciplastk.Products.Where(p => p.Name == infoProduct.Name).FirstOrDefault();
             if(existProduct != null)
             {
-                Console.WriteLine("El producto ya existe. ");
                 return true;
             }
             else
@@ -104,7 +113,7 @@ namespace WebAppDbRecipastk.services
             }
         }
 
-        public Product ModifyAllProduct(string name, string description, string code, int buyPrice, int sellPrice, int margin)
+        public Product ModifyAllProduct2(string name, string description, string code, int buyPrice, int sellPrice, int margin)
         {
             var product = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
             if (product != null)
@@ -126,7 +135,7 @@ namespace WebAppDbRecipastk.services
             }
         }
 
-        public Product ModifyAllProduct2(ModelsProducts infoProducts)
+        public Product ModifyAllProduct(ModelsProducts infoProducts)
         {
             var product = dbReciplastk.Products.Where(p => p.Name == infoProducts.Name).FirstOrDefault();
             if (product != null)

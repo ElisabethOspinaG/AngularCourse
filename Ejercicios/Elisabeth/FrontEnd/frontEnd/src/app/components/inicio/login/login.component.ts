@@ -28,8 +28,6 @@ export class LoginComponent {
       password: ['', Validators.required]
     });
   }
-  ngOnInit(): void {
-  }
 
   log(): void {
     console.log(this.login);
@@ -44,6 +42,7 @@ export class LoginComponent {
       this.security.LogIn(usuario).subscribe((result) =>{
         if (result == true)
         {
+          this.toastr.success('Bienvenido.')
           this.login.reset();
           this.router.navigate(['/dashboard'])
           } else{

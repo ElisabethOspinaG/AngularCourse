@@ -16,7 +16,7 @@ export class SecurityService {
   };
 
   CreateUser(user: RegisterUser): Observable<boolean>{
-    return this.http.post<boolean>('https://localhost:7039/api/Login/registerUser?name='+user.nameUser+'&lastname='+user.lastNameUser+'&user='+user.user+'&password='+user.passwordUser , user);
+    return this.http.post<boolean>('https://localhost:7039/api/Login/registerUser', user);
   }
 
   LogIn(loginInfo: Usuario): Observable<boolean>{
@@ -25,8 +25,4 @@ export class SecurityService {
   //
     return this.http.get<boolean>('https://localhost:7039/api/Login/acceseAcount?user='+loginInfo.nombreUsuario+'&password='+loginInfo.password);
    };
-
-
-
-
 }

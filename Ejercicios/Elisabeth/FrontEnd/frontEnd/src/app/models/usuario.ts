@@ -4,8 +4,8 @@ export class Usuario{
 }
 
 export class RegisterUser{
-  nameUser: string='';
-  lastNameUser: string= '';
-  user: string= '';
-  passwordUser: string =''
+  Name: string='';
+  LastName: string= '';
+  Username: string= '';
+  Password: string =''
 }

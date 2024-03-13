@@ -7,21 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private appURL: string;
-  private controllerURL: string;
+  // private appURL: string;
+  // private controllerURL: string;
 
   constructor(private http: HttpClient) {
-    this.appURL = "https://localhost:7039/";
-    this.controllerURL = "api/dbReciplastk/";
+    // this.appURL = "https://localhost:7039/";
+    // this.controllerURL = "api/dbReciplastk/";
   }
 
-  ShowListProducts(infoProducts: Product): Observable<boolean>{
-    //this.http.get('${this.appURL}${this.controllerURL}')
-    return this.http.get<boolean>('https://localhost:7039/api/dbReciplastk/showAllInfo')
-  }
+  // ShowListProducts(infoProducts: Product): Observable<boolean>{
+  //   //this.http.get('${this.appURL}${this.controllerURL}')
+  //   return this.http.get<boolean>('https://localhost:7039/api/dbReciplastk/showAllInfo')
+  // }
 
   CreateProducts(infoProducts: Product): Observable<boolean>{
-    //this.http.get('${this.appURL}${this.controllerURL}')
+    //this.http.post('${this.appURL}${this.controllerURL}')
     return this.http.post<boolean>('https://localhost:7039/api/dbReciplastk/showAllInfo', infoProducts);
   }
 
