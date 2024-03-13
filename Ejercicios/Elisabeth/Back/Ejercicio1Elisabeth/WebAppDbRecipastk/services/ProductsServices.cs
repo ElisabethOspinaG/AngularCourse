@@ -76,7 +76,7 @@ namespace WebAppDbRecipastk.services
             else
             {
                 var newProduct = new Product();
-
+                
                 newProduct.Name = infoProduct.Name;
                 newProduct.Description = infoProduct.Description;
                 newProduct.Code = infoProduct.Code;

@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { RegisterUser } from '../../../models/usuario';
 import { ToastrService } from 'ngx-toastr';
-import { SecurityService } from '../../../services/security.service';
 import { LoadingComponent } from '../../../shared/loading/loading.component';
+import { RegisterUser } from '../../../models/usuario';
+import { SecurityService } from '../../../services/security.service';
 
 @Component({
   selector: 'app-register',
@@ -56,10 +56,7 @@ export class RegisterComponent {
 
     }
     this.loading = true;
-
     setTimeout(() => {
-
-      this.loading = false;
       this.security.CreateUser(registerUser).subscribe((result) => {
         if(result == true){
           this.register.reset();
@@ -70,9 +67,8 @@ export class RegisterComponent {
           // this.register.reset()
         }
       })
-
     }, 3000);
-
+    this.loading = false;
     console.log("info registerUser", registerUser )
   }
 }

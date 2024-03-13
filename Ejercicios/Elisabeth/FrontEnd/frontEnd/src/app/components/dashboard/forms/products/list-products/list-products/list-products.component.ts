@@ -16,10 +16,10 @@ import { ProductService } from '../../../../../../services/product.service';
 })
 export class ListProductsComponent implements OnInit{
   listProducts: Product[] = [
-    {id: 1, Name: "polietileno Alta Densidad", Description: "Material conocido como plástico soplado", Code: "0001", BuyPrice: 1500, SellPrice: 2000, Margin: 500},
-    {id: 2, Name: "polietileno Baja Densidad", Description: "Se hace plástico burbujas, bolsas, papel film, etc,", Code: "0002", BuyPrice: 1000, SellPrice: 1200, Margin: 200},
-    {id: 3, Name: "polipropileno", Description: "Esta en tapas envases, recipientes, canastas, etc ", Code: "0003", BuyPrice: 1200, SellPrice: 1800, Margin: 600},
-    {id: 4, Name: "pet", Description: "producto para fabricar varias cosas", Code: "001", BuyPrice: 1000, SellPrice: 1200, Margin: 200}
+    {Name: "polietileno Alta Densidad", Description: "Material conocido como plástico soplado", Code: "0001", BuyPrice: 1500, SellPrice: 2000, Margin: 500},
+    {Name: "polietileno Baja Densidad", Description: "Se hace plástico burbujas, bolsas, papel film, etc,", Code: "0002", BuyPrice: 1000, SellPrice: 1200, Margin: 200},
+    {Name: "polipropileno", Description: "Esta en tapas envases, recipientes, canastas, etc ", Code: "0003", BuyPrice: 1200, SellPrice: 1800, Margin: 600},
+    {Name: "pet", Description: "producto para fabricar varias cosas", Code: "001", BuyPrice: 1000, SellPrice: 1200, Margin: 200}
   ]
 
   constructor(private products: ProductService) {  }

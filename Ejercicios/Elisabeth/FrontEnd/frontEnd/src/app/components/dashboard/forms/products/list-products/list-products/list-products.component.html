@@ -6,7 +6,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">id</th>
+
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
         <th scope="col">Código</th>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of listProducts" class="table-active">
-        <td>{{ item.id}}</td>
+
         <td>{{ item.Name}}</td>
         <td>{{ item.Description }}</td>
         <td>{{ item.Code }}</td>
@@ -26,7 +26,7 @@
         <td>{{ item.SellPrice }}</td>
         <td>{{ item.Margin }}</td>
         <td>
-          <button [routerLink]="['/dashboard/edit', item.id]" type="button" class="btn btn-info btn-sm ">edit</button>
+          <button [routerLink]="['/dashboard/edit', item.Name]" type="button" class="btn btn-info btn-sm ">edit</button>
           <button type="button" class="btn btn-secondary btn-sm ms-2">delete</button>
         </td>
       </tr>

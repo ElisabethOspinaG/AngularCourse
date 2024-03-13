@@ -15,18 +15,15 @@ export class ProductService {
     // this.controllerURL = "api/dbReciplastk/";
   }
 
+  CreateNewProducts(infoProduct: Product): Observable<boolean>{
+    //this.http.post('${this.appURL}${this.controllerURL}')
+    return this.http.post<boolean>('https://localhost:7039/api/dbReciplastk/createNewProduct', infoProduct);
+  }
+
+
   // ShowListProducts(infoProducts: Product): Observable<boolean>{
   //   //this.http.get('${this.appURL}${this.controllerURL}')
   //   return this.http.get<boolean>('https://localhost:7039/api/dbReciplastk/showAllInfo')
   // }
-
-  CreateProducts(infoProducts: Product): Observable<boolean>{
-    //this.http.post('${this.appURL}${this.controllerURL}')
-    return this.http.post<boolean>('https://localhost:7039/api/dbReciplastk/showAllInfo', infoProducts);
-  }
-
-  // CreateProducts(infoProducts: Product): Observable<modeloHttp>{
-  //   //this.http.get('${this.appURL}${this.controllerURL}')
-  //   return this.http.post<modeloHttp>('https://localhost:7039/api/dbReciplastk/showAllInfo', infoProducts);
-  // }
+  
 }
