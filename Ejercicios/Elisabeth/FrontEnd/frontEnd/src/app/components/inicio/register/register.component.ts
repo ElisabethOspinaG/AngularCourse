@@ -7,6 +7,7 @@ import { LoadingComponent } from '../../../shared/loading/loading.component';
 import { RegisterUser } from '../../../models/usuario';
 import { SecurityService } from '../../../services/security.service';
 
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -56,6 +57,7 @@ export class RegisterComponent {
 
     }
     this.loading = true;
+
     setTimeout(() => {
       this.security.CreateUser(registerUser).subscribe((result) => {
         if(result == true){
@@ -67,6 +69,8 @@ export class RegisterComponent {
           // this.register.reset()
         }
       })
+
+
     }, 3000);
     this.loading = false;
     console.log("info registerUser", registerUser )

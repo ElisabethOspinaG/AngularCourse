@@ -23,10 +23,10 @@ export class AddEditProductsComponent {
     private router: Router,
     private products: ProductService
     ){
-    this.formProduct = fb.group({
-      name: ['', Validators.required, Validators.maxLength(20)],
-      description: ['', Validators.required, Validators.maxLength(250)],
-      code: ['', Validators.required, Validators.maxLength(10)],
+    this.formProduct = this.fb.group({
+      name: ['', [Validators.required, Validators.maxLength(20)]],
+      description: ['', [Validators.required, Validators.maxLength(250)]],
+      code: ['', [Validators.required, Validators.maxLength(10)]],
       buyPrice: [null, Validators.required],
       sellPrice: [null, Validators.required],
       margin: [null, Validators.required]
@@ -34,8 +34,12 @@ export class AddEditProductsComponent {
   }
   addProduct(): void{
     console.log(this.formProduct)
+  // console.log(this.formProduct.value.name) // forma de acceder el valor de la propiedad name
+  // console.log(this.formProduct.get('name')?.value) // otra forma de acceder al valor name
 
-    const product: Product = {
+  //Obtener el valor de las propiedades
+
+  const product: Product = {
     Name: this.formProduct.value.name,
     Description: this.formProduct.value.description,
     Code: this.formProduct.value.code,
@@ -59,7 +63,7 @@ export class AddEditProductsComponent {
 
   }, 3000)
   this.loading = false;
-  console.log("info product", product);
+  console.log("info product:", product);
   }
 
 }
