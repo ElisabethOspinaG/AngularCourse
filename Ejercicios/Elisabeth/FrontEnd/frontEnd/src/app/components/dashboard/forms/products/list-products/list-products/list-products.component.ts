@@ -1,9 +1,11 @@
+import { Product } from './../../../../../../interfaces/product';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../../../../interfaces/product';
 import { CompilerConfig } from '@angular/compiler';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../../../../../../services/product.service';
 
 @Component({
   selector: 'app-list-products',
@@ -20,10 +22,19 @@ export class ListProductsComponent implements OnInit{
     {id: 4, Name: "pet", Description: "producto para fabricar varias cosas", Code: "001", BuyPrice: 1000, SellPrice: 1200, Margin: 200}
   ]
 
-  constructor() {}
+  constructor(private products: ProductService) {  }
+  ListProducts(): void{
+
+    // this.products.ShowListProducts(data).suscribe(result =>{
+    //   if (result == true) {
+
+    //   }else{
+
+    //   }
+    // })
+  }
 
   ngOnInit(): void {
 
   }
-
 }

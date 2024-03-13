@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario';
+import { RegisterUser, Usuario } from '../models/usuario';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SecurityService {
+  private appURL: string;
+  private controllerURL: string;
 
-  constructor(private http: HttpClient) { };
+  constructor(private http: HttpClient) {
+    this.appURL = "https://localhost:7039/";
+    this.controllerURL = "/api/Login/"
+  };
 
-  LogIn(loginInfo: Usuario ): Observable<boolean>{
-  //   appURL: String = "https://localhost:7039/api/"
+  CreateUser(user: RegisterUser): Observable<boolean>{
+    return this.http.post<boolean>('https://localhost:7039/api/Login/registerUser?name='+user.nameUser+'&lastname='+user.lastNameUser+'&user='+user.user+'&password='+user.passwordUser , user);
+  }
+
+  LogIn(loginInfo: Usuario): Observable<boolean>{
+  //   appURL: String = "https://localhost:7039/"
   //   controllerURL: string = "";
+  //
     return this.http.get<boolean>('https://localhost:7039/api/Login/acceseAcount?user='+loginInfo.nombreUsuario+'&password='+loginInfo.password);
-   }
-   LogOut(){
+   };
 
-   }
+
+
+
 }
