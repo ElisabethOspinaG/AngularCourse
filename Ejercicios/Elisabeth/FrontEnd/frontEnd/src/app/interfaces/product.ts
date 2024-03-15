@@ -1,8 +1,9 @@
 export interface Product {
-  Name: string;
-  Description: string;
-  Code: string;
-  BuyPrice: number;
-  SellPrice: number;
-  Margin: number;
+  id?: number;
+  name: string;
+  description: string;
+  code: string;
+  buyprice: number;
+  sellprice: number;
+  margin: number;
  }

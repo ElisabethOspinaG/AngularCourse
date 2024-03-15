@@ -32,6 +32,7 @@ export class AddEditProductsComponent {
       margin: [null, Validators.required]
     })
   }
+ 
   addProduct(): void{
     console.log(this.formProduct)
   // console.log(this.formProduct.value.name) // forma de acceder el valor de la propiedad name
@@ -40,19 +41,20 @@ export class AddEditProductsComponent {
   //Obtener el valor de las propiedades
 
   const product: Product = {
-    Name: this.formProduct.value.name,
-    Description: this.formProduct.value.description,
-    Code: this.formProduct.value.code,
-    BuyPrice: this.formProduct.value.buyPrice,
-    SellPrice: this.formProduct.value.sellPrice,
-    Margin: this.formProduct.value.margin
+    name: this.formProduct.value.name,
+    description: this.formProduct.value.description,
+    code: this.formProduct.value.code,
+    buyprice: this.formProduct.value.buyPrice,
+    sellprice: this.formProduct.value.sellPrice,
+    margin: this.formProduct.value.margin
   }
 
   this.loading = true;
+  console.log(product)
   setTimeout( () => {
-    this.products.CreateNewProducts(product).subscribe((result) =>{
+    this.products.CreateNewProducts(product).subscribe(result =>{
       if(result == true){
-          // this.toastr.success('Producto Creado Exitosamente');
+          this.toastr.success('Producto Creado Exitosamente');
           this.formProduct.reset();
           this.router.navigate(['/dashboard'])
       }else{
@@ -65,5 +67,4 @@ export class AddEditProductsComponent {
   this.loading = false;
   console.log("info product:", product);
   }
-
 }
