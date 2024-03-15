@@ -90,30 +90,15 @@ namespace WebAppDbRecipastk.services
             }
             
         }
-        
-        public Product ModifyAllProduct2(string name, string description, string code, int buyPrice, int sellPrice, int margin)
+
+        public Product SearchProduct(string name)
         {
-            var product = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
-            if (product != null)
-            {
-                product.Name = name;
-                product.Description = description;
-                product.Code = code;
-                product.Buyprice = buyPrice;
-                product.Sellprice = sellPrice;
-                product.Margin = margin;
-                dbReciplastk.SaveChanges();
-
-                var productModify = dbReciplastk.Products.Where(p=>p.Name == product.Name).FirstOrDefault();    
-                return productModify;
-            }
-            else
-            {
-                return null;
-            }
+            var foundProduct = dbReciplastk.Products.Where(p => p.Name == name).FirstOrDefault();
+            return foundProduct;
+            
         }
-
-        public Product ModifyAllProduct(ModelsProducts infoProducts)
+        
+        public Product ModifyProduct(ModelsProducts infoProducts)
         {
             var product = dbReciplastk.Products.Where(p => p.Name == infoProducts.Name).FirstOrDefault();
             if (product != null)

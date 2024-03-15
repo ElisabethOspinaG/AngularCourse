@@ -12,10 +12,9 @@ namespace WebAppDbRecipastk.Controllers
     {
                        
         public ProductsServices productsServices = new ProductsServices();
-
        
-        [HttpGet("showAllInfo")]
-        public List<Product> ShowAllInfo()
+        [HttpGet("showAllListProducts")]
+        public List<Product> ShowAllListProducts()
         {
 
             return productsServices.ShowAllListProducts();
@@ -50,21 +49,20 @@ namespace WebAppDbRecipastk.Controllers
             
             return productsServices.CreateNewProduct(infoProduct);
         }
+        [HttpGet ("searchProduct")]
         
-        [HttpPost("ModifyAllProduct")]
-
-        public Product ModifyAllProduct(string name, string description, string code, int buyPrice, int sellPrice, int margin)
+        public Product SearchProduct(string name)
         {
-            return productsServices.ModifyAllProduct2(name, description, code, buyPrice, sellPrice, margin);
+            return productsServices.SearchProduct(name);
         }
 
-        [HttpPost("ModifyAllProduct2")]
-        public Product ModifyllProduct2(ModelsProducts infoProduct) { 
+        [HttpPost("modifyProduct")]
+        public Product ModifyProduct(ModelsProducts infoProduct) { 
         
-            return productsServices.ModifyAllProduct(infoProduct);
+            return productsServices.ModifyProduct(infoProduct);
         }
 
-        [HttpPost("RemoveProduct")]
+        [HttpPost("removeProduct")]
 
         public bool DeleteProduct(string name)
         {
